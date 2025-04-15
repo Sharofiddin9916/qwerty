@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import { LayoutWrapper } from './Layout.style';
+import { LayoutWrapper, Main } from './Layout.style';
 
 function Layout({ children }) {
 
@@ -9,7 +9,9 @@ function Layout({ children }) {
         <LayoutWrapper>
             <div>
                 <Navbar />
-                {children}
+                <Main>
+                    {children}
+                </Main>
             </div>
             <Footer />
         </LayoutWrapper>

@@ -5,14 +5,16 @@ import {
     NavbarContentWrapper,
     MenuItems,
     ContactsWrapper,
+    MobNavbarWrapper,
 } from './Navbar.styles';
 import { Link } from 'react-router';
-import LogoSvg from '../../assets/images/logo.svg';
-import { Button, Input } from '../../components';
-import { CartIcon, HeartIcon, NetworkIcon, TogglerIcon } from '../../assets/icons';
+import LogoSvg from '@/assets/images/logo.svg';
+import { Button, Input } from '@/components';
+import { CartIcon, HeartIcon, NetworkIcon, TogglerIcon, MenuTogglerIcon } from '@/assets/icons';
 
 function Navbar() {
     return (
+        <>
         <NavbarWrapper className='container'>
             <TopInfoWrapper>
                 <MenuItems>
@@ -32,10 +34,12 @@ function Navbar() {
                 <Link to='/'>
                     <img className='logo' src={LogoSvg} alt="Logo" />
                 </Link>
-                <Button>
-                    <TogglerIcon /> Каталог
-                </Button>
-                <Input type="search" placeholder="Поиск по товарам" />
+                <div className='mid-wrapper'>
+                    <Button>
+                        <TogglerIcon /> Каталог
+                    </Button>
+                    <Input type="search" placeholder="Поиск по товарам" />
+                </div>
                 <div className='action-bar'>
                     <div>
                         <HeartIcon />
@@ -52,6 +56,26 @@ function Navbar() {
                 </div>
             </NavbarContentWrapper>
         </NavbarWrapper>
+        <MobNavbarWrapper>
+            <div className='navbar-content'>
+                <div className='logo-menu-toggler'>
+                    <MenuTogglerIcon/>
+                    <Link>
+                        <img src={LogoSvg} alt="Logo" />
+                    </Link>
+                </div>
+                <div className='actions-side'>
+                    <Link to="/">
+                        <HeartIcon/>
+                    </Link>
+                    <Link to="/">
+                        <CartIcon/>
+                    </Link>
+                </div>
+            </div>
+            <Input type="search" placeholder="Поиск по товарам"/>
+        </MobNavbarWrapper>
+        </>
     );
 }
 
